@@ -13,13 +13,14 @@ const ContextProvider = ({ children }) => {
     const [callAccepted, setCallAccepted] = useState(false)
     const [callEnded, setCallEnded] = useState(false)
     const [name, setName] = useState('')
+    const [video, setVideo] = useState(true)
 
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
 
     useEffect(() => {
-        navigator.mediaDevices.getUserMedia({video: true, audio: true})
+        navigator.mediaDevices.getUserMedia({video: false, audio: true})
         .then((currentStream) => {
             setStream(currentStream)
 

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Typography, AppBar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import VideoPlayer from './components/VideoPlayer'
 import Notifications from './components/Notifications'
 import Options from './components/Options'
+import { SocketContext } from './SocketContext'
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
     const classes = useStyles()
+    const {callAccepted, callEnded, setVideo} = useContext(SocketContext)
 
     return (
         <div className={classes.wrapper}>
